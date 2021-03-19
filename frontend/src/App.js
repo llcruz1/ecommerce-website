@@ -8,16 +8,18 @@ import ProductScreen from "./screens/ProductScreen";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <main>
-        <Container className="py-3">
-          <Route path="/" component={HomeScreen} exact />
-          <Route path="/product/:id" component={ProductScreen} />
-        </Container>
-      </main>
-      <Footer />
-    </Router>
+    <>
+      <Router>
+        <Header />
+        <main>
+          <Container className="py-3">
+            <Route path="/" component={HomeScreen} exact />
+            <Route path="/product/:id" component={ProductScreen} />
+          </Container>
+        </main>
+        <Footer />
+      </Router>
+    </>
   );
 }
 
