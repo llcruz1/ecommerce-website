@@ -1,16 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import FormContainer from "../components/FormContainer";
 import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message";
 import { createOrder } from "../actions/orderActions";
@@ -43,7 +34,7 @@ function PlaceOrderScreen({ history }) {
       history.push(`/order/${order._id}`);
       dispatch({ type: ORDER_CREATE_RESET });
     }
-  }, [success, history]);
+  }, [dispatch, success, history]);
 
   const placeOrder = () => {
     dispatch(
