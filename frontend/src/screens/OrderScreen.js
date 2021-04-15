@@ -93,7 +93,8 @@ function OrderScreen({ match }) {
               </p>
               {order.isDelivered ? (
                 <Message variant="success">
-                  Delivered on {order.deliveredAt}
+                  Delivered on{" "}
+                  {new Date(order.deliveredAt).toLocaleDateString()}
                 </Message>
               ) : (
                 <Message variant="warning">Not delivered</Message>
@@ -108,7 +109,9 @@ function OrderScreen({ match }) {
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant="success">Paid on {order.paidAt}</Message>
+                <Message variant="success">
+                  Paid on {new Date(order.paidAt).toLocaleDateString()}
+                </Message>
               ) : (
                 <Message variant="warning">Not paid</Message>
               )}
