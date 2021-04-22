@@ -24,7 +24,7 @@ function UserListScreen({ history }) {
     } else {
       history.push("/login");
     }
-  }, [dispatch, history, successDelete]);
+  }, [dispatch, history, successDelete, userInfo]);
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
@@ -54,8 +54,8 @@ function UserListScreen({ history }) {
             {users.map((user) => (
               <tr key={user._id}>
                 <td>{user._id}</td>
-                <th>{user.name}</th>
-                <th>{user.email}</th>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
                 <td>
                   {user.isAdmin ? (
                     <i className="fas fa-check" style={{ color: "green" }}></i>
