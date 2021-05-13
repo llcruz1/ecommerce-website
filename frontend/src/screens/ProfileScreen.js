@@ -56,7 +56,7 @@ function ProfileScreen({ history }) {
           name: name,
           email: email,
           password: password,
-        })
+        }),
       );
       setMessage("");
     }

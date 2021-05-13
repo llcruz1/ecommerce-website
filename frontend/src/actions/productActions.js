@@ -33,9 +33,7 @@ export const listProducts = () => async (dispatch) => {
     dispatch({
       type: PRODUCT_LIST_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -54,9 +52,7 @@ export const listProductDetails = (id) => async (dispatch) => {
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -85,9 +81,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
     dispatch({
       type: PRODUCT_DELETE_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -117,9 +111,7 @@ export const createProduct = () => async (dispatch, getState) => {
     dispatch({
       type: PRODUCT_CREATE_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -141,11 +133,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(
-      `/api/products/update/${product._id}/`,
-      product,
-      config
-    );
+    const { data } = await axios.put(`/api/products/update/${product._id}/`, product, config);
     dispatch({
       type: PRODUCT_UPDATE_SUCCESS,
       payload: data,
@@ -159,9 +147,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     dispatch({
       type: PRODUCT_UPDATE_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };

@@ -94,9 +94,7 @@ function RegisterScreen({ location, history }) {
         <Row className="py-3">
           <Col>
             Have an account?
-            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-              Sign In
-            </Link>
+            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>Sign In</Link>
           </Col>
         </Row>
       </Form>

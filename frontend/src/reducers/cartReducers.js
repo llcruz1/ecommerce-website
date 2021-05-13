@@ -6,10 +6,7 @@ import {
   CART_CLEAR_ITEMS,
 } from "../constants/cartConstants";
 
-export const cartReducer = (
-  state = { cartItems: [], shippingAddress: {} },
-  action
-) => {
+export const cartReducer = (state = { cartItems: [], shippingAddress: {} }, action) => {
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
@@ -18,9 +15,7 @@ export const cartReducer = (
       if (existItem) {
         return {
           ...state,
-          cartItems: state.cartItems.map((x) =>
-            x.product === existItem.product ? item : x
-          ),
+          cartItems: state.cartItems.map((x) => (x.product === existItem.product ? item : x)),
         };
       } else {
         return {

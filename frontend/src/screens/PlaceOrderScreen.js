@@ -13,9 +13,7 @@ function PlaceOrderScreen({ history }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
-  cart.itemsPrice = cart.cartItems
-    .reduce((acc, item) => acc + item.price * item.qty, 0)
-    .toFixed(2);
+  cart.itemsPrice = cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2);
 
   cart.shippingPrice = (cart.itemsPrice > 100 ? 0 : 10).toFixed(2);
   cart.taxPrice = (0.082 * cart.itemsPrice).toFixed(2);
@@ -46,7 +44,7 @@ function PlaceOrderScreen({ history }) {
         shippingPrice: cart.shippingPrice,
         taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
-      })
+      }),
     );
   };
 
@@ -91,8 +89,7 @@ function PlaceOrderScreen({ history }) {
                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                       </Col>
                       <Col md={4}>
-                        {item.qty} X ${item.price} = $
-                        {(item.qty * item.price).toFixed(2)}
+                        {item.qty} X ${item.price} = ${(item.qty * item.price).toFixed(2)}
                       </Col>
                     </Row>
                   </ListGroup.Item>

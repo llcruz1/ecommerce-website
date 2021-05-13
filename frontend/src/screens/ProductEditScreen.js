@@ -27,11 +27,7 @@ function ProductEditScreen({ match, history }) {
   const { error, loading, product } = productDetails;
 
   const productUpdate = useSelector((state) => state.productUpdate);
-  const {
-    error: errorUpdate,
-    loading: loadingUpdate,
-    success: successUpdate,
-  } = productUpdate;
+  const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = productUpdate;
 
   useEffect(() => {
     if (successUpdate) {
@@ -64,7 +60,7 @@ function ProductEditScreen({ match, history }) {
         category,
         countInStock,
         description,
-      })
+      }),
     );
   };
 
@@ -84,11 +80,7 @@ function ProductEditScreen({ match, history }) {
         },
       };
 
-      const { data } = await axios.post(
-        "/api/products/upload/",
-        formData,
-        config
-      );
+      const { data } = await axios.post("/api/products/upload/", formData, config);
 
       setImage(data);
       setUploading(false);

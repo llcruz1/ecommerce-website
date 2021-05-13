@@ -55,9 +55,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({
       type: USER_LOGIN_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -103,9 +101,7 @@ export const register = (name, email, password) => async (dispatch) => {
     dispatch({
       type: USER_REGISTER_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -135,9 +131,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     dispatch({
       type: USER_DETAILS_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -157,11 +151,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(
-      `/api/users/profile/update/`,
-      user,
-      config
-    );
+    const { data } = await axios.put(`/api/users/profile/update/`, user, config);
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
@@ -178,9 +168,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     dispatch({
       type: USER_UPDATE_PROFILE_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -210,9 +198,7 @@ export const listUsers = () => async (dispatch, getState) => {
     dispatch({
       type: USER_LIST_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -242,9 +228,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
     dispatch({
       type: USER_DELETE_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };
@@ -264,11 +248,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(
-      `/api/users/update/${user._id}/`,
-      user,
-      config
-    );
+    const { data } = await axios.put(`/api/users/update/${user._id}/`, user, config);
 
     dispatch({
       type: USER_UPDATE_SUCCESS,
@@ -282,9 +262,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
     dispatch({
       type: USER_UPDATE_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response && error.response.data.detail ? error.response.data.detail : error.message,
     });
   }
 };

@@ -1,15 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Form,
-  Button,
-  Card,
-} from "react-bootstrap";
+import { Row, Col, ListGroup, Image, Form, Button, Card } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 
@@ -64,11 +56,7 @@ function CartScreen({ match, location, history }) {
                     <Form.Control
                       as="select"
                       value={item.qty}
-                      onChange={(e) =>
-                        dispatch(
-                          addToCart(item.product, Number(e.target.value))
-                        )
-                      }
+                      onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}
                     >
                       {/* If countInStock == 3, then [...Array(product.countInStock).keys()] creates an array like [0,1,2] */}
                       {[...Array(item.countInStock).keys()].map((x) => (
@@ -97,15 +85,8 @@ function CartScreen({ match, location, history }) {
         <Card>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h2>
-                {" "}
-                Subtotal({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                items
-              </h2>
-              $
-              {cartItems
-                .reduce((acc, item) => acc + item.qty * item.price, 0)
-                .toFixed(2)}
+              <h2> Subtotal({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h2>$
+              {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
             </ListGroup.Item>
             <ListGroup.Item>
               <Button

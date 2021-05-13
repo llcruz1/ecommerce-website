@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Button,
-  Card,
-  Form,
-} from "react-bootstrap";
+import { Row, Col, Image, ListGroup, Button, Card, Form } from "react-bootstrap";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -57,9 +49,7 @@ function ProductScreen({ match, history }) {
                 />
               </ListGroup.Item>
               <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-              <ListGroup.Item>
-                Description: ${product.description}
-              </ListGroup.Item>
+              <ListGroup.Item>Description: ${product.description}</ListGroup.Item>
             </ListGroup>
           </Col>
 
@@ -78,9 +68,7 @@ function ProductScreen({ match, history }) {
                 <ListGroup.Item>
                   <Row>
                     <Col>Status: </Col>
-                    <Col>
-                      {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
-                    </Col>
+                    <Col>{product.countInStock > 0 ? "In Stock" : "Out of Stock"}</Col>
                   </Row>
                 </ListGroup.Item>
 
