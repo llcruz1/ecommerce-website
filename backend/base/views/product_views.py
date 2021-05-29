@@ -9,7 +9,13 @@ from rest_framework import status
 
 @api_view(['GET'])
 def getProducts(request):
-    products = Product.objects.all()
+    query = request.query_params.get('keyword')
+
+    if query == None:
+        query = ''
+        
+    # Filter by product name. 'icontains' means that the names being filtered are case insensitive.
+    products = Product.objects.filter(name__icontains=query) 
     serializer = ProductSerializer(products, many=True)
     return Response(serializer.data)
 
